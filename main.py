@@ -1,5 +1,6 @@
 from settings import *
 
+from snake import Snake
 
 class Main:
     def __init__(self) -> None:
@@ -12,6 +13,8 @@ class Main:
         self.background_rectangles = [pygame.Rect((column + int(row % 2 == 0)) * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE) 
                                       for column in range(0, COLUMNS, 2)
                                       for row in range(ROWS)]
+        
+        self.snake = Snake()
 
 
     def run(self) -> None:
@@ -24,6 +27,8 @@ class Main:
             self.display_surface.fill(LIGHT_GREEN)
 
             self.draw_background()
+
+            self.snake.draw()
 
             pygame.display.update()
 
