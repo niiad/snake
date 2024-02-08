@@ -7,6 +7,10 @@ class Main:
 
         self.display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 
+        self.background_rectangles = [pygame.Rect((column + int(row % 2 == 0)) * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE) 
+                                      for column in range(0, COLUMNS, 2)
+                                      for row in range(ROWS)]
+
 
     def run(self) -> None:
         while True:
@@ -15,7 +19,16 @@ class Main:
                     pygame.quit()
                     exit()
 
+            self.display_surface.fill(LIGHT_GREEN)
+
+            self.draw_background()
+
             pygame.display.update()
+
+
+    def draw_background(self):
+        for rectangle in self.background_rectangles:
+            pygame.draw.rect(self.display_surface, DARK_GREEN, rectangle)
 
 
 main = Main()
