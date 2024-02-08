@@ -7,6 +7,8 @@ class Main:
 
         self.display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 
+        pygame.display.set_caption("snake")
+
         self.background_rectangles = [pygame.Rect((column + int(row % 2 == 0)) * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE) 
                                       for column in range(0, COLUMNS, 2)
                                       for row in range(ROWS)]
@@ -31,6 +33,7 @@ class Main:
             pygame.draw.rect(self.display_surface, DARK_GREEN, rectangle)
 
 
-main = Main()
+if __name__ == "__main__":
+    main = Main()
 
-main.run()
+    main.run()
