@@ -1,9 +1,10 @@
 from settings import *
 
 class Apple:
-    def __init__(self) -> None:
+    def __init__(self, snake) -> None:
         self.position = pygame.Vector2(5, 8)
         self.display_surface = pygame.display.get_surface()
+        self.snake = snake
 
 
     def draw(self):
