@@ -1,6 +1,7 @@
 from settings import *
 
 from snake import Snake
+from apple import Apple
 
 class Main:
     def __init__(self) -> None:
@@ -15,6 +16,7 @@ class Main:
                                       for row in range(ROWS)]
         
         self.snake = Snake()
+        self.apple = Apple()
 
 
     def run(self) -> None:
@@ -29,6 +31,7 @@ class Main:
             self.draw_background()
 
             self.snake.draw()
+            self.apple.draw()
 
             pygame.display.update()
 
