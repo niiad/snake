@@ -16,7 +16,7 @@ class Main:
                                       for row in range(ROWS)]
         
         self.snake = Snake()
-        self.apple = Apple()
+        self.apple = Apple(self.snake)
 
 
     def run(self) -> None:
